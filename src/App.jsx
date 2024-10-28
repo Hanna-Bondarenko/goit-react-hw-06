@@ -44,7 +44,7 @@ function App() {
   console.log(contacts);
   return (
     <div className={styles.appContainer}>
-      <h1>Phonebook</h1>
+      <h1 className={styles.title}>Phonebook</h1>
       <ContactForm onSubmit={addContact} />
       <SearchBox value={filter} onChange={handleFilterChange} />
       <ContactList

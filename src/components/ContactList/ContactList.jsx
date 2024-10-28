@@ -2,18 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import styles from "./ContactList.module.css";
 import { deleteContact, selectContacts } from "../../redux/contactsSlice";
-import { selectNameFilter } from "../../redux/filtersSlice"; // Імпортуємо селектор фільтра
+import { selectNameFilter } from "../../redux/filtersSlice";
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectNameFilter); // Отримуємо значення фільтра
+  const filter = useSelector(selectNameFilter);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
     dispatch(deleteContact(id));
   };
 
-  // Фільтруємо контакти на основі значення фільтра
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );

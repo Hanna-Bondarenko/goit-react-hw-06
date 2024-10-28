@@ -30,15 +30,18 @@ const ContactForm = ({ onSubmit }) => {
       onSubmit={handleSubmit}
     >
       <Form className={styles.form}>
-        <label htmlFor="name">Name</label>
-        <Field id="name" name="name" type="text" />
-        <ErrorMessage name="name" component="div" />
+        <div className={styles.input}>
+          <label htmlFor="name">Name</label>
+          <Field id="name" name="name" type="text" />
+          <ErrorMessage name="name" component="div" />
 
-        <label htmlFor="number">Number</label>
-        <Field id="number" name="number" type="tel" />
-        <ErrorMessage name="number" component="div" />
-
-        <button type="submit">Add contact</button>
+          <label htmlFor="number">Number</label>
+          <Field id="number" name="number" type="tel" />
+          <ErrorMessage name="number" component="div" />
+        </div>
+        <button className={styles.button} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );
