@@ -13,13 +13,12 @@ const validationSchema = Yup.object({
   number: Yup.string().min(7, "Too Short!").required("Required"),
 });
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     const newContact = { ...values, id: nanoid() };
     dispatch(addContact(newContact));
-    onSubmit(newContact);
     resetForm();
   };
 
